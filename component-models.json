@@ -130,6 +130,28 @@
     ]
   },
   {
+    "id": "cards",
+    "fields": [
+      {
+        "component": "multiselect",
+        "valueType": "string",
+        "name": "classes",
+        "label": "Classes",
+        "value": "",
+        "options": [
+          {
+            "name": "Hero Cards",
+            "value": "hero-cards"
+          },
+          {
+            "name": "Mosaic Cards",
+            "value": "mosaic-cards"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
