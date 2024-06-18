@@ -213,6 +213,10 @@
               {
                 "name": "Centered Content",
                 "value": "centered-content"
+              },
+              { 
+                "name": "Condensed Width",
+                "value": "condensed-width"
               }
             ]
           }

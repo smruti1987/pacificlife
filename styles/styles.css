@@ -237,6 +237,10 @@ main .section.centered-content > .default-content-wrapper {
   text-align: center;
 }
 
+main .section.condensed-width > .default-content-wrapper {
+  max-width: 75rem;
+}
+
 main .section p {
   font-size: var(--body-font-size-s);
 }

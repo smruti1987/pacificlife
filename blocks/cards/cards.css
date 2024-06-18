@@ -35,7 +35,7 @@
 .cards.hero-cards {
   width: 100%;
   max-width: 106.5rem;
-  margin: -16.8rem auto 0;
+  margin: 4.8rem auto;
 }
 
 .cards.hero-cards > ul {
@@ -43,6 +43,7 @@
   flex-flow: row wrap;
   justify-content: center;
   gap: 0;
+  margin-top: -21.5rem;
 }
 
 .cards.hero-cards > ul > li {
