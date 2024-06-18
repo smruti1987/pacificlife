@@ -19,6 +19,7 @@
   --dark-color: #ccc;
   --text-color: black;
   --text-color-white: #fff;
+  --primary-bg-color: #008ed7;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback;
@@ -218,6 +219,14 @@ main img {
 /* sections */
 main .section {
   padding: 64px 16px;
+}
+
+main .section.primary-bg-section {
+  background-color: var(--primary-bg-color);
+}
+
+main .section.centered-content > .default-content-wrapper {
+  text-align: center;
 }
 
 main .section p {
