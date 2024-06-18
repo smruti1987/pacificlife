@@ -1,9 +1,30 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
+function createAnchorEl() {
+  const cardsContainer = document.querySelector('.hero-cards');
+  if (cardsContainer) {
+    const cards = cardsContainer.querySelectorAll('li');
+    for (let i = 0; i < cards.length; i++) {
+      if (!cards[i].querySelector('.has-link')) {
+        const link = cards[i].querySelector('a');
+        const wrapper = document.createElement('a');
+        wrapper.setAttribute('href', link.href);
+        wrapper.classList.add('has-link');
+        wrapper.append(...cards[i].children);
+        cards[i].appendChild(wrapper);
+        link.parentElement.removeAttribute('class');
+        link.parentElement.innerHTML = link.title;
+        link.remove();
+      }
+    }
+  }
+}
+
 export default function decorate(block) {
   /* change to ul, li */
   const ul = document.createElement('ul');
+  console.dir(block.children);
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
     moveInstrumentation(row, li);
@@ -21,4 +42,5 @@ export default function decorate(block) {
   });
   block.textContent = '';
   block.append(ul);
+  createAnchorEl();
 }
