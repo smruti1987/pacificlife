@@ -7,18 +7,7 @@
         "valueType": "string",
         "name": "jcr:title",
         "value": "",
-        "label": "Text",
-        "options": [
-          {
-            "name": "Text Color",
-            "children": [
-              {
-                "name": "White",
-                "value": "font-color__white"
-              }
-            ]
-          }
-        ]
+        "label": "Text"
       },
       {
         "component": "select",
@@ -50,6 +39,24 @@
           {
             "name": "h6",
             "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "multiselect",
+        "name": "style",
+        "value": "",
+        "label": "Style",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Text Color",
+            "children": [
+              {
+                "name": "White",
+                "value": "font-color__white"
+              }
+            ]
           }
         ]
       }
