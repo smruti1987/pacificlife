@@ -20,6 +20,8 @@
   --text-color: black;
   --text-color-white: #fff;
   --primary-bg-color: #008ed7;
+  --default-btn-color: #24c5cf;
+  --default-btn-color-hover: #1c9ca4;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback;
@@ -27,6 +29,7 @@
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
   --body-font-family-default: 'OpenSans', 'sans-serif';
   --body-font-family-mont: 'Montserrat', 'sans-serif';
+  --button-font-family: var(--body-font-family-mont);
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -160,7 +163,7 @@ a:hover {
 /* buttons */
 a.button:any-link,
 button {
-  font-family: var(--body-font-family);
+  font-family: var(--button-font-family);
   display: inline-block;
   box-sizing: border-box;
   text-decoration: none;
@@ -171,19 +174,23 @@ button {
   font-weight: 600;
   cursor: pointer;
   color: var(--background-color);
-  background-color: var(--link-color);
+  background-color: var(--default-btn-color);
   margin: 16px 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-radius: 30px;
+  border-radius: 4px;
+  font-size: var(--body-font-size-xxs);
+  text-transform: uppercase;
+  line-height: 2;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 a.button:hover,
 a.button:focus,
 button:hover,
 button:focus {
-  background-color: var(--link-hover-color);
+  background-color: var(--default-btn-color-hover);
   cursor: pointer;
 }
 
