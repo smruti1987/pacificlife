@@ -231,14 +231,28 @@
         "component": "reference",
         "valueType": "string",
         "name": "image",
-        "label": "Image",
+        "label": "Desktop Image",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image2",
+        "label": "Mobile Image",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "imageAlt",
-        "label": "Alt",
+        "label": "Desktop Image Alt Text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "image2Alt",
+        "label": "Mobile Image Alt Text",
         "value": ""
       },
       {
