@@ -46,7 +46,7 @@
 }
 
 .cards.hero-cards > ul > li {
-  --background-color: #008ed7;
+  --background-color: var(--link-color);
 
   border: none;
   max-width: 16.1rem;
@@ -73,7 +73,7 @@
 }
 
 .cards.hero-cards > ul > li:hover {
-  --background-color: var(--background-color);
+  --background-color: var(--text-color-white);
 }
 
 .cards.hero-cards > ul > li:hover img {
