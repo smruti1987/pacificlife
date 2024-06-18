@@ -1,6 +1,4 @@
 export default function decorate(block) {
-    console.log(block);
-    console.log([...block.children]);
     const hpHero = block.closest('.hero.block');
   
     if (hpHero) {
