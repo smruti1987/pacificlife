@@ -5,7 +5,7 @@ function createAnchorEl() {
   const cardsContainer = document.querySelector('.hero-cards');
   if (cardsContainer) {
     const cards = cardsContainer.querySelectorAll('li');
-    for (let i = 0; i < cards.length; i++) {
+    for (let i = 0; i < cards.length; i += 1) {
       if (!cards[i].querySelector('.has-link')) {
         const link = cards[i].querySelector('a');
         const wrapper = document.createElement('a');
@@ -24,7 +24,6 @@ function createAnchorEl() {
 export default function decorate(block) {
   /* change to ul, li */
   const ul = document.createElement('ul');
-  console.dir(block.children);
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
     moveInstrumentation(row, li);
