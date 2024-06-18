@@ -49,8 +49,7 @@
   --background-color: var(--link-color);
 
   border: none;
-  max-width: 16.1rem;
-  min-width: 16.1rem;
+  width: 50%;
   min-height: 19.8rem;
   max-height: 19.8rem;
 }
@@ -66,7 +65,7 @@
 .cards.hero-cards .cards-card-body p {
   margin: 0;
   color: var(--text-color-white);
-  font-size: var(--body-font-size-xxs);
+  font-size: var(--body-font-size-xs);
   font-weight: var(--font-semibold);
   text-transform: uppercase;
   line-height: 1;
@@ -105,11 +104,31 @@
   padding: 0 1.9rem;
 }
 
+.cards.hero-cards > ul > li:last-child {
+  width: 100%;
+}
+
+.cards.hero-cards > ul > li:last-child .cards-card-body {
+  width: 40%;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
 @media (width >= 480px) {
   .cards.hero-cards > ul > li {
     max-width: 21.3rem;
     min-width: 21.3rem;
     min-height: 20.8rem;
     max-height: 20.8rem;
+  }
+
+  .cards.hero-cards .cards-card-body p {
+    font-size: var(--body-font-size-xxs);
+  }
+
+  .cards.hero-cards > ul > li:last-child .cards-card-body {
+    width: unset;
+    margin: 1.5rem 0;
+    padding: 0 1.9rem;
   }
 }
