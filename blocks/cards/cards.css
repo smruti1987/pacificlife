@@ -42,11 +42,12 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  gap: 0px;
+  gap: 0;
 }
 
 .cards.hero-cards > ul > li {
   --background-color: #008ed7;
+
   border: none;
   max-width: 16.1rem;
   min-width: 16.1rem;
@@ -54,8 +55,25 @@
   max-height: 19.8rem;
 }
 
+.cards.hero-cards .cards-card-image img {
+  max-height: 6rem;
+  min-height: 6rem;
+  position: relative;
+  z-index: 2;
+  object-fit: contain;
+}
+
+.cards.hero-cards .cards-card-body p {
+  margin: 0;
+  color: var(--text-color-white);
+  font-size: var(--body-font-size-xxs);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
 .cards.hero-cards > ul > li:hover {
-  --background-color: #ffffff;
+  --background-color: var(--background-color);
 }
 
 .cards.hero-cards > ul > li:hover img {
@@ -80,28 +98,11 @@
   padding-top: 4.5rem;
 }
 
-.cards.hero-cards .cards-card-image img {
-  max-height: 6rem;
-  min-height: 6rem;
-  position: relative;
-  z-index: 2;
-  object-fit: contain;
-}
-
 .cards.hero-cards .cards-card-body {
   margin: 1.5rem 0;
   text-align: center;
   font-family: var(--body-font-family-mont);
   padding: 0 1.9rem;
-}
-
-.cards.hero-cards .cards-card-body p {
-  margin: 0;
-  color: var(--text-color-white);
-  font-size: var(--body-font-size-xxs);
-  font-weight: var(--font-semibold);
-  text-transform: uppercase;
-  line-height: 1;
 }
 
 @media (width >= 480px) {
