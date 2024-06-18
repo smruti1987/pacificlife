@@ -7,7 +7,18 @@
         "valueType": "string",
         "name": "jcr:title",
         "value": "",
-        "label": "Text"
+        "label": "Text",
+        "options": [
+          {
+            "name": "Text Color",
+            "children": [
+              {
+                "name": "White",
+                "value": "font-color__white"
+              }
+            ]
+          }
+        ]
       },
       {
         "component": "select",
