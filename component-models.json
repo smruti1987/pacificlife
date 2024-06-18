@@ -41,24 +41,6 @@
             "value": "h6"
           }
         ]
-      },
-      {
-        "component": "multiselect",
-        "name": "style",
-        "value": "",
-        "label": "Style",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Text Color",
-            "children": [
-              {
-                "name": "White",
-                "value": "font-color__white"
-              }
-            ]
-          }
-        ]
       }
     ]
   },
@@ -144,6 +126,24 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
+      },      
+      {
+        "component": "multiselect",
+        "name": "style",
+        "value": "",
+        "label": "Style",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Variant",
+            "children": [
+              {
+                "name": "Icon Card Content",
+                "value": "icon-card-content"
+              }
+            ]
+          }
+        ]
       }
     ]
   },

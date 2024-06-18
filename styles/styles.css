@@ -232,6 +232,10 @@ main .section {
 
 main .section.primary-bg-section {
   background-color: var(--primary-bg-color);
+
+  h3 {
+    color: var(--text-color-white);
+  }
 }
 
 main .section.centered-content > .default-content-wrapper {

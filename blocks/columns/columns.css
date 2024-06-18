@@ -31,3 +31,11 @@
     order: unset;
   }
 }
+
+/* Icon Card Content */
+
+.cards.icon-card-content {
+  width: 100%;
+  max-width: 106.5rem;
+  margin: -16.8rem auto 0;
+}
