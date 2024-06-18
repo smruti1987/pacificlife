@@ -32,3 +32,13 @@ main .hero-container {
   width: 100%;
   height: 100%;
 }
+
+.hero .hero-foreground h1 {
+  text-shadow: 0 0 6px var(--heading-text-shadow);
+}
+
+@media (width > 575.98px) {
+  .hero .hero-img-mobile {
+    display: none;
+  }
+}
