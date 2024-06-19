@@ -1,0 +1,7 @@
+.image-block a {
+  display: inline-block;
+}
+  
+.image-block img {
+  display: block;
+}
