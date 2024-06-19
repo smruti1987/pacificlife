@@ -8,8 +8,7 @@ main .hero-container {
 
 .hero {
   position: relative;
-  padding: 32px;
-  min-height: 300px;
+  min-height: 55rem;
 }
 
 .hero h1 {
@@ -33,8 +32,27 @@ main .hero-container {
   height: 100%;
 }
 
+.hero .hero-overlay {
+  background: rgba(0 0 0 / 20%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.hero .hero-foreground > div {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .hero .hero-foreground h1 {
   text-shadow: 0 0 6px var(--heading-text-shadow);
+  text-align: center;
+  max-width: 75rem;
+  margin: 0;
+  z-index: 1;
 }
 
 @media (width > 575.98px) {

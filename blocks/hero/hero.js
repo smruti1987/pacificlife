@@ -3,6 +3,8 @@ export default function decorate(block) {
   if (hpHero) {
     const background = document.createElement('div');
     background.className = 'hero-background';
+    const overlay = document.createElement('div');
+    overlay.className = 'hero-overlay';
     [...block.children].forEach((item, i) => {
       const childDiv = item.querySelector('div');
       if (i === 2) {
@@ -19,6 +21,6 @@ export default function decorate(block) {
         childDiv.parentElement.remove();
       }
     });
-    block.append(background);
+    block.append(background, overlay);
   }
 }
