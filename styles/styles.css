@@ -232,9 +232,20 @@ main .section {
 
 main .section.primary-bg-section {
   background-color: var(--primary-bg-color);
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
 
-  h3 {
-    color: var(--text-color-white);
+main .section.primary-bg-section h3 {
+  color: var(--text-color-white);
+  max-width: 750px;
+}
+
+@media (width >= 900px) {
+  main .section.primary-bg-section > .default-content-wrapper {
+    display: flex;
+    justify-content: center;
+    max-width: 1140px;
   }
 }
 
