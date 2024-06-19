@@ -126,13 +126,13 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
-      },      
+      },
       {
         "component": "multiselect",
-        "name": "style",
-        "value": "",
-        "label": "Style",
+        "name": "classes",
+        "label": "Classes",
         "valueType": "string",
+        "value": "",
         "options": [
           {
             "name": "Variant",
