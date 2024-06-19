@@ -1,19 +1,11 @@
 export default async function decorate(block) {
-  const linkTag = document.createElement('a');
-  const firstPara = block.querySelector('p');
+  const image = block.querySelector('picture');
   const linkHref = block.querySelector('.button').getAttribute('href');
-  const newWindow = block.lastElementChild.children.innerHTML;
-
-  if (linkHref) {
-    linkTag.setAttribute('href', linkHref);
-
-    if (newWindow === true) {
-      linkTag.setAttribute('target', '_blank');
-    }
-
-    linkTag.innerHTML = firstPara.innerHTML;
-    firstPara.parentNode.replaceChild(linkTag, firstPara);
-
+  if (image && linkHref) {
+    const anchor = document.createElement('a');
+    anchor.setAttribute('href', linkHref);
+    image.parentNode.insertBefore(anchor, image);
+    anchor.appendChild(image);
     [...block.children].forEach((row, i) => {
       if (i !== 0) {
         row.remove();
