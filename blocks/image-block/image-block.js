@@ -4,6 +4,7 @@ export default async function decorate(block) {
   if (image && linkHref) {
     const anchor = document.createElement('a');
     anchor.setAttribute('href', linkHref);
+    anchor.classList.add('image-block-link');
     image.parentNode.insertBefore(anchor, image);
     anchor.appendChild(image);
     [...block.children].forEach((row, i) => {

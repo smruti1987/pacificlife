@@ -37,6 +37,7 @@
   max-width: 106.5rem;
   margin: 4.8rem auto;
   position: relative;
+  z-index: 1;
 }
 
 .cards.hero-cards > ul {

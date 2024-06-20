@@ -1,5 +1,6 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+import waitForElement from '../../scripts/utils.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -143,7 +144,21 @@ export default async function decorate(block) {
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
   const navWrapper = document.createElement('div');
+
+  waitForElement('.nav-drop', () => {
+    const navDrops = document.querySelectorAll('.nav-drop');
+    navDrops.forEach((dropdown) => {
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('nav-drop-container');
+      const data = dropdown.querySelector('ul');
+      wrapper.append(data);
+      dropdown.appendChild(wrapper);
+    });
+  });
+
+  const megaMenuWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
+  megaMenuWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
 }
