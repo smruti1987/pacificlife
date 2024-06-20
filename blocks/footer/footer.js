@@ -1,13 +1,12 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
-const footer = document.querySelector('.footer');
-
 function removeButtonClass() {
+  const footer = document.querySelector('.footer');
   if (footer) {
     const links = footer.querySelectorAll('.button');
     if (links) {
-      links.forEach(function(link) {
+      links.forEach((link) => {
         link.removeAttribute('class');
       });
     }
