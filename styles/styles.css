@@ -24,6 +24,7 @@
   --primary-btn-color: #24c5cf;
   --primary-btn-color-hover: #1c9ca4;
   --heading-text-shadow: #454545;
+  --text-body-color: #212529;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback;
@@ -84,8 +85,9 @@ body {
   font-size: var(--body-font-size-default);
   margin: 0;
   font-family: var(--body-font-family-default);
-  line-height: 1.6;
-  color: var(--text-color);
+  line-height: 1.5;
+  color: var(--text-body-color);
+  text-align: left;
   background-color: var(--background-color);
   display: none;
 }
