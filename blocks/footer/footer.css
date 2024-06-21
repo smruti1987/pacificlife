@@ -34,7 +34,7 @@ footer .footer p.button-container a {
 }
 
 @media (width < 992px) {
-  footer .footer .section.columns-container {
+  footer .footer .section.footer-nav {
     display: none;
   }
 }
