@@ -317,6 +317,32 @@ header nav .nav-tools {
                     max-width: 37.6rem;
                     margin-right: auto;
 
+                    a {
+                      font-family: var(--body-font-family-default);
+                      font-weight: var(--font-bold);
+                      font-size: var(--body-font-size-xxs);
+                      color: var(--link-color);
+                      text-decoration: none;
+
+                      &:hover {
+                        color: var(--link-dark-hover-color);
+                      }
+                    }
+
+                    >.button-container {
+                      a {
+                        color: var(--link-color);
+                        font-size: var(--body-font-size-m);
+                        font-weight: var(--font-light-bold);
+                        padding: 0;
+                        margin: 0;
+
+                        &:hover {
+                          color: var(--link-dark-hover-color);
+                        }
+                      }
+                    }
+
                     >ul {  
                       flex-flow: column nowrap;
                       align-items: flex-start;
@@ -327,7 +353,8 @@ header nav .nav-tools {
                         font-family: var(--body-font-family-default);
                         font-size: var(--body-font-size-xxs);
                       }
-                    }
+
+                    }                    
 
                     .about-us & {
                       max-width: 86.4rem;
@@ -347,26 +374,6 @@ header nav .nav-tools {
                         }
                       }
                     }
-                  }
-                }
-  
-                >ul>li>ul>li a {
-                  font-family: var(--body-font-family-default);
-                  font-weight: var(--font-bold);
-                  font-size: var(--body-font-size-xxs);
-                  color: var(--link-color);
-                  text-decoration: none;
-                }
-  
-                .button-container>a {
-                  color: var(--link-color);
-                  font-size: var(--body-font-size-m);
-                  font-weight: var(--font-light-bold);
-                  padding: 0;
-                  margin: 0;
-  
-                  &:hover {
-                    color: var(--link-dark-hover-color);
                   }
                 }
               }
@@ -416,111 +423,6 @@ header nav .nav-tools {
           }
         }
       }
-
-      /* ul {
-        justify-content: center;
-        align-items: center;
-      } */
     }
-
-    /* .default-content-wrapper {
-
-      >ul {
-        >li {
-          .nav-drop-container {
-            display: none;
-            position: relative;
-          }
-
-          &[aria-expanded='true'] {
-            position: static;
-
-            >.nav-drop-container {
-              display: block;
-              position: absolute;
-              left: 0;
-              right: 0;
-              top: 8rem;
-              width: 100%;
-              background: var(--background-color);
-              border-top: 1px solid var(--light-color);
-              padding: 2.4rem 0 4rem;
-
-              .about-us & {
-                >ul>li {
-                  max-width: 86.4rem;
-                  margin: 0 auto;
-                }
-              }
-
-              >ul {
-                display: flex;
-                flex-flow: column wrap;
-                max-height: 50rem;
-                background: var(--background-color);
-                gap: 1rem;
-                max-width: 1120px;
-                margin: 0 auto;
-
-                >li {
-                  max-width: 37.6rem;
-                  margin-right: auto;
-
-                  >ul {
-                    .about-us & {
-                      flex-flow: row wrap;
-                      justify-content: flex-start;
-                      column-gap: 0;
-                    }
-
-                    flex-flow: column nowrap;
-                    align-items: flex-start;
-                    white-space: initial;
-                    gap: 1rem;
-
-                    >li {
-                      .about-us & {
-                        flex: 0 0 33.3333%;
-
-                        &:first-child {
-                          flex: 0 0 100%;
-                        }
-                      }
-
-                      font-family: var(--body-font-family-default);
-                      font-size: var(--body-font-size-xxs);
-                    }
-                  }
-                }
-              }
-
-              >ul>li>ul>li a {
-                font-family: var(--body-font-family-default);
-                font-weight: var(--font-bold);
-                font-size: var(--body-font-size-xxs);
-                color: var(--link-color);
-                text-decoration: none;
-              }
-
-              .button-container>a {
-                color: var(--link-color);
-                font-size: var(--body-font-size-m);
-                font-weight: var(--font-light-bold);
-                padding: 0;
-                margin: 0;
-
-                &:hover {
-                  color: var(--link-dark-hover-color);
-                }
-              }
-
-              >ul>li>ul>li a:hover {
-                color: var(--link-dark-hover-color);
-              }
-            }
-          }
-        }
-      }
-    } */
   }
 }
