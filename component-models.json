@@ -217,6 +217,10 @@
               { 
                 "name": "Condensed Width",
                 "value": "condensed-width"
+              },
+              {
+                "name": "Footer Nav",
+                "value": "footer-nav"
               }
             ]
           }
