@@ -147,11 +147,16 @@ export default async function decorate(block) {
 
   waitForElement('.nav-drop', () => {
     const navDrops = document.querySelectorAll('.nav-drop');
-    navDrops.forEach((dropdown) => {
+    navDrops.forEach((dropdown, index) => {
       const wrapper = document.createElement('div');
       wrapper.classList.add('nav-drop-container');
       const data = dropdown.querySelector('ul');
       wrapper.append(data);
+      if (index === 0) {
+        dropdown.classList.add('products');
+      } else {
+        dropdown.classList.add('about-us');
+      }
       dropdown.appendChild(wrapper);
     });
   });
