@@ -201,11 +201,11 @@ header nav .nav-sections ul>li>ul>li {
     cursor: pointer;
   }
 
-  header nav .nav-sections .nav-drop::after {
+  header nav .nav-sections .nav-drop > p::after {
     content: '';
     display: inline-block;
     position: absolute;
-    right: 2px;
+    right: -1.5rem;
     transform: rotate(135deg);
     width: 6px;
     height: 6px;
@@ -214,9 +214,8 @@ header nav .nav-sections ul>li>ul>li {
     border-width: 2px 2px 0 0;
   }
 
-  header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-    top: unset;
-    bottom: 0.5em;
+  header nav .nav-sections .nav-drop[aria-expanded='true'] >p::after {
+    top: 0.4rem;
     transform: rotate(315deg);
   }
 
@@ -387,6 +386,7 @@ header nav .nav-tools {
           font-weight: var(--font-semibold);
           font-family: var(--button-font-family);
           color: var(--text-color);
+          position: relative;
 
           &:hover {
             color: var(--link-color);
