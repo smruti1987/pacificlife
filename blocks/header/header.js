@@ -44,15 +44,9 @@ function focusNavSection() {
  */
 function toggleAllNavSections(sections, expanded = false) {
   sections.forEach((section) => {
-    section.querySelectorAll('.default-content-wrapper > ul > li').forEach((item) => item.setAttribute('aria-expanded', expanded));
+    section.querySelectorAll('.default-content-wrapper > ul > li')
+      .forEach((item) => item.setAttribute('aria-expanded', expanded));
   });
-  //const dropdowns = sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li, .nav-tools .default-content-wrapper > ul > li');
-  // sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
-  //   section.setAttribute('aria-expanded', expanded);
-  // });
-  // dropdowns?.forEach((section) => {
-  //   section.setAttribute('aria-expanded', expanded);
-  // });
 }
 
 /**
