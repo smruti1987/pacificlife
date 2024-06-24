@@ -278,6 +278,12 @@ header nav .nav-tools {
 
     /* utility nav */
     .nav-tools {
+      .nav-drop:hover {
+        img {
+          filter: invert(43%) sepia(41%) saturate(6221%) hue-rotate(177deg) brightness(96%) contrast(101%);
+        }
+      }
+
       >.default-content-wrapper {
         ul {
           margin: 0;
@@ -288,30 +294,136 @@ header nav .nav-tools {
         >ul {
           display: flex;
           flex-flow: row nowrap;
+          align-items: center;
 
           >li {
+            margin-right: 3rem;
+
             .nav-drop-container {
               display: none;
               position: relative;
+            }
+
+            &.login {
+              li {
+                font-family: var(--body-font-family-default);
+                font-weight: var(--font-med-bold);
+                font-size: var(--body-font-size-xxs);
+                color: var(--link-color);
+              }
+            }
+
+            &:hover {
+              cursor: pointer;
+
+              > p {
+                color: var(--link-color);
+
+                img {
+                  filter: invert(43%) sepia(41%) saturate(6221%) hue-rotate(177deg) brightness(96%) contrast(101%);
+                }
+              }
+            }
+
+            > p {
+              margin: 0;
+              padding: 0;
+              border: none;
+              display: flex;
+              flex-flow: row nowrap;
+              justify-content: flex-start;
+              align-items: center;
+              transition: none;
+              font-family: var(--body-font-family-mont);
+              font-size: 1.3rem;
+              font-weight: var(--font-semibold);
+              text-transform: none;
+
+              .icon {
+                margin-right: 0.4rem;
+              }
+
+              img {
+                filter: brightness(0%);
+              }
             }
 
             >ul {
               display: none;
             }
 
+            a {
+              text-decoration: none;
+              display: block;
+              padding: .25rem 1.5rem;
+              width: auto;
+              white-space: normal;
+
+              &:hover {
+                background-color: var(--link-color);
+                color: var(--text-color-white);
+              }
+            }
+
             &[aria-expanded='true'] {
               position: relative;
+
+              > .button-container {
+                a {
+                  color: var(--link-color);
+
+                  img {
+                    filter: invert(43%) sepia(41%) saturate(6221%) hue-rotate(177deg) brightness(96%) contrast(101%);
+                  }
+                }
+              }
 
               >.nav-drop-container {
                 display: block;
                 position: absolute;
-                left: 0;
-                right: 0;
-                top: 8rem;
-                width: auto;
+                left: -50%;
+                top: 5.2rem;
+                width: 16rem;
                 background: var(--background-color);
                 border-top: 1px solid var(--light-color);
                 padding: 2rem 0;
+              }
+
+              &.menu {
+                >.nav-drop-container {
+                  display: block;
+                  position: fixed;
+                  left: unset;
+                  top: 0;
+                  right: 0;
+                  width: 50rem;
+                  height: 100vh;
+                  background: var(--primary-bg-color);
+                  padding: 2rem 0;
+                  border: none;
+                  box-shadow: -2px 0 4px 0 rgba(0 0 0 / 20%);
+                }
+
+                ul {
+                  margin-top: 6rem;
+                  padding: 0 7.5rem;
+                }
+
+                li {
+                  margin: 3.5rem 0 0.8rem;
+                }
+
+                a {
+                  font-family: var(--body-font-family-mont);
+                  font-size: 2rem;
+                  color: var(--text-color-white);
+                  font-weight: var(--font-semibold);
+                  text-transform: uppercase;
+
+                  &:hover {
+                    color: var(--text-color-white-hover);
+                  }
+                }
               }
             }
           }

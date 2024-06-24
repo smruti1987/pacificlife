@@ -20,6 +20,7 @@
   --dark-color: #3b2b2b;
   --text-color: black;
   --text-color-white: #fff;
+  --text-color-white-hover: #e6e6e6;
   --primary-bg-color: #008ed7;
   --primary-btn-color: #24c5cf;
   --primary-btn-color-hover: #1c9ca4;
@@ -56,6 +57,7 @@
   --font-regular: 400;
   --font-semibold: 600;
   --font-light-bold: 700;
+  --font-med-bold: 800;
   --font-bold: 900;
 }
 
