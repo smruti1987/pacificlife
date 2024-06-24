@@ -3,7 +3,7 @@ import { loadFragment } from '../fragment/fragment.js';
 import waitForElement from '../../scripts/utils.js';
 
 // media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
+const isDesktop = window.matchMedia('(min-width: 1140px)');
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -43,9 +43,16 @@ function focusNavSection() {
  * @param {Boolean} expanded Whether the element should be expanded or collapsed
  */
 function toggleAllNavSections(sections, expanded = false) {
-  sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
-    section.setAttribute('aria-expanded', expanded);
+  sections.forEach((section) => {
+    section.querySelectorAll('.default-content-wrapper > ul > li').forEach((item) => item.setAttribute('aria-expanded', expanded));
   });
+  //const dropdowns = sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li, .nav-tools .default-content-wrapper > ul > li');
+  // sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
+  //   section.setAttribute('aria-expanded', expanded);
+  // });
+  // dropdowns?.forEach((section) => {
+  //   section.setAttribute('aria-expanded', expanded);
+  // });
 }
 
 /**
@@ -62,22 +69,24 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
   // enable nav dropdown keyboard accessibility
-  const navDrops = navSections.querySelectorAll('.nav-drop');
-  if (isDesktop.matches) {
-    navDrops.forEach((drop) => {
-      if (!drop.hasAttribute('tabindex')) {
-        drop.setAttribute('role', 'button');
-        drop.setAttribute('tabindex', 0);
-        drop.addEventListener('focus', focusNavSection);
-      }
-    });
-  } else {
-    navDrops.forEach((drop) => {
-      drop.removeAttribute('role');
-      drop.removeAttribute('tabindex');
-      drop.removeEventListener('focus', focusNavSection);
-    });
-  }
+  navSections.forEach((section) => {
+    const navDrops = section.querySelectorAll('.nav-drop');
+    if (isDesktop.matches) {
+      navDrops.forEach((drop) => {
+        if (!drop.hasAttribute('tabindex')) {
+          drop.setAttribute('role', 'button');
+          drop.setAttribute('tabindex', 0);
+          drop.addEventListener('focus', focusNavSection);
+        }
+      });
+    } else {
+      navDrops.forEach((drop) => {
+        drop.removeAttribute('role');
+        drop.removeAttribute('tabindex');
+        drop.removeEventListener('focus', focusNavSection);
+      });
+    }
+  });
   // enable menu collapse on escape keypress
   if (!expanded || isDesktop.matches) {
     // collapse menu on escape press
@@ -116,19 +125,20 @@ export default async function decorate(block) {
     brandLink.closest('.button-container').className = '';
   }
 
-  const navSections = nav.querySelector('.nav-sections');
-  if (navSections) {
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
+  const navSections = nav.querySelectorAll('.nav-sections, .nav-tools');
+  navSections?.forEach((navSection) => {
+    const items = navSection.querySelectorAll(':scope .default-content-wrapper > ul > li');
+    items?.forEach((item) => {
+      if (item.querySelector('ul')) item.classList.add('nav-drop');
+      item.addEventListener('click', () => {
         if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
+          const expanded = item.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          item.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         }
       });
     });
-  }
+  });
 
   // hamburger for mobile
   const hamburger = document.createElement('div');
@@ -152,11 +162,10 @@ export default async function decorate(block) {
       wrapper.classList.add('nav-drop-container');
       const data = dropdown.querySelector('ul');
       wrapper.append(data);
-      if (index === 0) {
-        dropdown.classList.add('products');
-      } else {
-        dropdown.classList.add('about-us');
-      }
+      if (index === 0) dropdown.classList.add('products');
+      if (index === 1) dropdown.classList.add('about-us');
+      if (index === 2) dropdown.classList.add('login');
+      if (index === 3) dropdown.classList.add('menu');
       dropdown.appendChild(wrapper);
     });
   });
