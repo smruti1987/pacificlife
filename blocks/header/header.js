@@ -107,7 +107,21 @@ function handleSearchClose(e) {
  * Toggles the search bar
  * @param {Element} parent The list container element
  */
-function appendSearchInput(parent) {
+function setupSearchClickHandler(block) {
+  const search = block.querySelector('.icon-search');
+  search?.closest('li').classList.add('search-toggle');
+  search.addEventListener('click', (e) => {
+    e.target.closest('.icon-search')?.classList.add('hidden');
+    const parent = e.target.closest('li')?.querySelector('.search-wrapper');
+    if (parent?.classList.contains('hidden')) {
+      parent.classList.remove('hidden');
+    }
+  });
+}
+
+function appendSearchWrapper(block) {
+  const liSearchParent = block.querySelector('.nav-sections > div > ul > li:last-child');
+
   const searchWrapper = document.createElement('div');
   searchWrapper.classList.add('search-wrapper', 'hidden');
   const searchInputWrapper = document.createElement('div');
@@ -153,7 +167,24 @@ function appendSearchInput(parent) {
   searchInputWrapper.append(closeIconWrapper);
   searchWrapper.append(searchInputWrapper);
   searchWrapper.append(submitBtn);
-  parent.append(searchWrapper);
+
+  liSearchParent.append(searchWrapper);
+  setupSearchClickHandler(block);
+}
+
+function addClassesToNavDropdowns(block) {
+  const navDrops = block.querySelectorAll('.nav-drop');
+  navDrops.forEach((dropdown, index) => {
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('nav-drop-container');
+    const data = dropdown.querySelector('ul');
+    wrapper.append(data);
+    if (index === 0) dropdown.classList.add('products');
+    if (index === 1) dropdown.classList.add('about-us');
+    if (index === 2) dropdown.classList.add('login');
+    if (index === 3) dropdown.classList.add('menu');
+    dropdown.appendChild(wrapper);
+  });
 }
 
 /**
@@ -214,36 +245,9 @@ export default async function decorate(block) {
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
   const navWrapper = document.createElement('div');
-
-  waitForElement('.nav-drop', () => {
-    const navDrops = document.querySelectorAll('.nav-drop');
-    const search = block.querySelector('.icon-search');
-    const searchParent = search?.closest('li');
-    search?.closest('li').classList.add('search-toggle');
-    search.addEventListener('click', (e) => {
-      e.target.closest('.icon-search')?.classList.add('hidden');
-      const parent = e.target.closest('li')?.querySelector('.search-wrapper');
-      if (parent?.classList.contains('hidden')) {
-        parent.classList.remove('hidden');
-      }
-    });
-    navDrops.forEach((dropdown, index) => {
-      const wrapper = document.createElement('div');
-      wrapper.classList.add('nav-drop-container');
-      const data = dropdown.querySelector('ul');
-      wrapper.append(data);
-      if (index === 0) dropdown.classList.add('products');
-      if (index === 1) dropdown.classList.add('about-us');
-      if (index === 2) dropdown.classList.add('login');
-      if (index === 3) dropdown.classList.add('menu');
-      dropdown.appendChild(wrapper);
-    });
-    appendSearchInput(searchParent);
-  });
-
-  const megaMenuWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
-  megaMenuWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+  appendSearchWrapper(block);
+  addClassesToNavDropdowns(block);
 }
