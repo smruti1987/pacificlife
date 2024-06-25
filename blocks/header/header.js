@@ -108,7 +108,6 @@ function handleSearchClose(e) {
  * @param {Element} parent The list container element
  */
 function appendSearchInput(parent) {
-
   const searchWrapper = document.createElement('div');
   searchWrapper.classList.add('search-wrapper', 'hidden');
   const searchInputWrapper = document.createElement('div');
@@ -148,7 +147,6 @@ function appendSearchInput(parent) {
   closeIconImg.setAttribute('loading', 'lazy');
   closeIconSpan.append(closeIconImg);
   closeIconWrapper.append(closeIconSpan);
-
 
   searchInputWrapper.append(searchIconWrapper);
   searchInputWrapper.append(searchInput);
@@ -221,7 +219,7 @@ export default async function decorate(block) {
     const navDrops = document.querySelectorAll('.nav-drop');
     const search = block.querySelector('.icon-search');
     const searchParent = search?.closest('li');
-    search?.closest('li').classList.add('search-toggle')
+    search?.closest('li').classList.add('search-toggle');
     search.addEventListener('click', (e) => {
       e.target.closest('.icon-search')?.classList.add('hidden');
       const parent = e.target.closest('li')?.querySelector('.search-wrapper');

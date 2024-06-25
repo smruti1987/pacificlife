@@ -434,7 +434,6 @@ header nav .nav-tools {
     /* main nav */
     .nav-sections {
       .default-content-wrapper {
-
         .search-wrapper {
           position: absolute;
           top: 50%;
@@ -476,7 +475,7 @@ header nav .nav-tools {
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;
           padding: 1.1rem 4rem 1.1rem 6rem;
-          flex: 1;
+
           &:focus {
             outline: 0;
           }
@@ -493,7 +492,6 @@ header nav .nav-tools {
           position: absolute;
           right: 0;
           display: flex;
-          padding: 0.8rem 1.6rem;
           background: none;
           border: none;
           margin: 0;
@@ -505,6 +503,7 @@ header nav .nav-tools {
 
           .icon-search {
             display: block;
+            
             &.hidden {
               display: none;
             }
