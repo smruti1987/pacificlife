@@ -1,21 +1,27 @@
-footer .footer > div {
-  padding-top: 1em;
-  margin-bottom: 1px;
+footer .footer > div > .section.columns-container {
   background-color: var(--primary-bg-color);
+  color: var(--text-color-white);
+  padding: 1em;
 }
 
-footer .footer .columns-4-cols > div {
+footer .footer > div > .section.footer-nav {
+  padding: 0;
+  padding-top: 1em;
+  margin-bottom: 1px;
+}
+
+footer .footer .section.footer-nav .columns-4-cols > div {
   gap: 30px;
   flex-direction: row;
 }
 
-footer .footer .columns-4-cols > div > div {
+footer .footer .section.footer-nav .columns-4-cols > div > div {
   align-self: flex-start;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-footer .footer p {
+footer .footer .section.footer-nav p {
   color: var(--text-color-white);
   font-size: var(--body-font-size-xxs);
   font-weight: 700;
@@ -31,6 +37,14 @@ footer .footer p.button-container a {
   color: var(--text-color-white);
   margin-bottom: 1rem;
   font-size: 12px;
+}
+
+footer .footer p {
+  font-size: var(--body-font-size-xs);
+}
+
+footer .footer p a {
+  color: var(--text-color-white);
 }
 
 @media (width < 992px) {
