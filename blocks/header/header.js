@@ -91,6 +91,74 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 }
 
 /**
+ * Toggles the search bar via the close button
+ * @param {Event} e The event passed in via click handler
+ */
+function handleSearchClose(e) {
+  const wrapper = e.target.closest('.search-wrapper');
+  if (!wrapper?.classList.contains('hidden')) {
+    wrapper.classList.add('hidden');
+  }
+  const searchIcon = e.target.closest('li')?.querySelector('.icon-search.hidden');
+  searchIcon?.classList.remove('hidden');
+}
+
+/**
+ * Toggles the search bar
+ * @param {Element} parent The list container element
+ */
+function appendSearchInput(parent) {
+
+  const searchWrapper = document.createElement('div');
+  searchWrapper.classList.add('search-wrapper', 'hidden');
+  const searchInputWrapper = document.createElement('div');
+  searchInputWrapper.classList.add('search-input-wrapper');
+  const searchInput = document.createElement('input');
+  searchInput.setAttribute('type', 'text');
+  searchInput.setAttribute('name', 'q');
+  searchInput.classList.add('search-input');
+  const submitBtn = document.createElement('button');
+  submitBtn.setAttribute('type', 'submit');
+  submitBtn.classList.add('button', 'primary');
+  const submitBtnText = document.createTextNode('Search');
+  submitBtn.append(submitBtnText);
+
+  const searchIconWrapper = document.createElement('div');
+  searchIconWrapper.classList.add('search-icon');
+  const searchIconSpan = document.createElement('span');
+  searchIconSpan.classList.add('icon', 'icon-search');
+  const searchIconImg = document.createElement('img');
+  searchIconImg.setAttribute('data-icon-name', 'search');
+  searchIconImg.setAttribute('src', '/icons/search.svg');
+  searchIconImg.setAttribute('alt', 'search icon');
+  searchIconImg.setAttribute('loading', 'lazy');
+  searchIconSpan.append(searchIconImg);
+  searchIconWrapper.append(searchIconSpan);
+
+  const closeIconWrapper = document.createElement('button');
+  closeIconWrapper.setAttribute('type', 'button');
+  closeIconWrapper.classList.add('close-icon');
+  closeIconWrapper.addEventListener('click', handleSearchClose);
+  const closeIconSpan = document.createElement('span');
+  closeIconSpan.classList.add('icon', 'icon-close');
+  const closeIconImg = document.createElement('img');
+  closeIconImg.setAttribute('data-icon-name', 'search');
+  closeIconImg.setAttribute('src', '/icons/close.svg');
+  closeIconImg.setAttribute('alt', 'close icon');
+  closeIconImg.setAttribute('loading', 'lazy');
+  closeIconSpan.append(closeIconImg);
+  closeIconWrapper.append(closeIconSpan);
+
+
+  searchInputWrapper.append(searchIconWrapper);
+  searchInputWrapper.append(searchInput);
+  searchInputWrapper.append(closeIconWrapper);
+  searchWrapper.append(searchInputWrapper);
+  searchWrapper.append(submitBtn);
+  parent.append(searchWrapper);
+}
+
+/**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
@@ -151,6 +219,16 @@ export default async function decorate(block) {
 
   waitForElement('.nav-drop', () => {
     const navDrops = document.querySelectorAll('.nav-drop');
+    const search = block.querySelector('.icon-search');
+    const searchParent = search?.closest('li');
+    search?.closest('li').classList.add('search-toggle')
+    search.addEventListener('click', (e) => {
+      e.target.closest('.icon-search')?.classList.add('hidden');
+      const parent = e.target.closest('li')?.querySelector('.search-wrapper');
+      if (parent?.classList.contains('hidden')) {
+        parent.classList.remove('hidden');
+      }
+    });
     navDrops.forEach((dropdown, index) => {
       const wrapper = document.createElement('div');
       wrapper.classList.add('nav-drop-container');
@@ -162,6 +240,7 @@ export default async function decorate(block) {
       if (index === 3) dropdown.classList.add('menu');
       dropdown.appendChild(wrapper);
     });
+    appendSearchInput(searchParent);
   });
 
   const megaMenuWrapper = document.createElement('div');
