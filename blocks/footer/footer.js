@@ -13,6 +13,16 @@ function removeButtonClass() {
   }
 }
 
+function socialMediaFooterClass() {
+  const footerEl = document.querySelector('.footer.block');
+  if (footerEl) {
+    const column = footerEl.querySelector('.columns-container:not(.footer-nav)');
+    column.classList.add('social-media');
+    const lastColumn = column?.querySelector('.columns.block > div > div:last-child');
+    lastColumn.classList.add('social-media-icons');
+  }
+}
+
 /**
  * loads and decorates the footer
  * @param {Element} block The footer block element
@@ -30,4 +40,5 @@ export default async function decorate(block) {
 
   block.append(footer);
   removeButtonClass();
+  socialMediaFooterClass();
 }

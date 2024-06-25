@@ -1,26 +1,43 @@
-footer .footer > div {
-  padding-top: 1em;
-  margin-bottom: 1px;
+footer .footer > div > .section.columns-container {
   background-color: var(--primary-bg-color);
+  color: var(--text-color-white);
+  padding: 1em;
 }
 
-footer .footer .columns-4-cols > div {
+footer .footer > div > .section.footer-nav {
+  padding: 0;
+  padding-top: 1em;
+  margin-bottom: 1px;
+}
+
+footer .footer .section.footer-nav .columns-4-cols > div {
   gap: 30px;
   flex-direction: row;
 }
 
-footer .footer .columns-4-cols > div > div {
+footer .footer .section.footer-nav .columns-4-cols > div > div {
   align-self: flex-start;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-footer .footer p {
+footer .footer .section.footer-nav p {
   color: var(--text-color-white);
   font-size: var(--body-font-size-xxs);
   font-weight: 700;
   margin-bottom: 1.5rem;
   margin-top: 0;
+}
+
+footer .section.social-media p {
+  margin: 0;
+}
+
+footer .section.social-media .social-media-icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-right: 8px;
 }
 
 footer .footer p.button-container {
@@ -31,6 +48,79 @@ footer .footer p.button-container a {
   color: var(--text-color-white);
   margin-bottom: 1rem;
   font-size: 12px;
+}
+
+footer .footer p {
+  font-size: var(--body-font-size-xs);
+}
+
+footer .footer p a {
+  color: var(--text-color-white);
+}
+
+.section.social-media .columns-wrapper {
+  margin: 0;
+  max-width: none !important;
+  padding: 0 3rem;
+}
+
+.section.social-media .social-media-icons > p.button-container {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  top: 0;
+  vertical-align: top;
+  white-space: nowrap;
+  position: relative;
+  transition: opacity 0.2s ease-in, top 0.2s ease-in;
+}
+
+.section.social-media .social-media-icons > p.button-container:hover {
+  top: -4px;
+  opacity: .8;
+}
+
+.section.social-media .social-media-icons > p.button-container a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  position: absolute;
+}
+
+.section.social-media .social-media-icons > p.button-container > a > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section.social-media .social-media-icons > p.button-container img {
+  width: 20px;
+  height: 20px;
+}
+
+.social-media-icons > p:nth-of-type(1) {
+  background-color: var(--linkedin-color);
+}
+
+.social-media-icons > p:nth-of-type(2) {
+  background-color: var(--facebook-color);
+}
+
+.social-media-icons > p:nth-of-type(3) {
+  background-color: var(--twitter-color);
+}
+
+.social-media-icons > p:nth-of-type(4) {
+  background-color: var(--instagram-color);
 }
 
 @media (width < 992px) {

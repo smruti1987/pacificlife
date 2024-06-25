@@ -28,6 +28,12 @@
   --text-body-color: #212529;
   --border-light: #E7E7E7;
 
+  /* social colors */
+  --linkedin-color: #0077b5;
+  --facebook-color: #4267B2;
+  --twitter-color: #000;
+  --instagram-color: #bc2a8d;
+
   /* fonts */
   --body-font-family: roboto, roboto-fallback;
   --heading-font-family: var(--body-font-family-mont);
