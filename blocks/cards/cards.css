@@ -155,7 +155,7 @@
 .cards.mosaic-cards > ul > li {
   border: none;
   border-radius: 0;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
   min-height: 372px;
   max-height: 604px;
   width: 100%;
@@ -169,6 +169,7 @@
     max-height: none;
     transition: 280px 1.5s ease-out;
   }
+
   .cards-card-body p, .cards-card-body a {
     display: block;
   }
@@ -190,7 +191,7 @@
   min-height: 80px;
   overflow: hidden;
   background-color: var(--background-color);
-  padding: 20px 25px 0 25px;
+  padding: 20px 25px 0;
   transition: 280px 1.5s ease-out;
 }
 
@@ -198,11 +199,11 @@
   font-size: 24px;
   font-weight: 300;
   line-height: 1.2;
-  font-family: 'Merriweather', serif;
+  font-family: Merriweather, serif;
   text-transform: none;
   max-height: 56px;
   overflow: hidden;
-  margin: 0 0 .75rem 0;
+  margin: 0 0 .75rem;
 }
 
 .cards.mosaic-cards > ul > li .cards-card-body p {
@@ -215,7 +216,7 @@
 
 .cards.mosaic-cards > ul > li .cards-card-body a {
   margin: 0;
-  padding: 0 0 5px 0;
+  padding: 0 0 5px;
   text-align: left;
   color: var(--link-color);
   letter-spacing: 1px;
