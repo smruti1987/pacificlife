@@ -135,3 +135,98 @@
     padding: 0 1.9rem;
   }
 }
+
+/* Mosaic Cards */
+
+.cards.mosaic-cards > ul {
+  grid-auto-rows: minmax(145px, auto);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.875rem 30px;
+}
+
+.cards.mosaic-cards > ul > li:nth-of-type(2) {
+  grid-row: span 2;
+}
+
+.cards.mosaic-cards > ul > li:nth-of-type(3) {
+  grid-row: span 2;
+}
+
+.cards.mosaic-cards > ul > li {
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  min-height: 372px;
+  max-height: 604px;
+  width: 100%;
+  min-width: 100%;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.cards.mosaic-cards > ul > li:hover {
+  .cards-card-body {
+    max-height: none;
+    transition: 280px 1.5s ease-out;
+  }
+  .cards-card-body p, .cards-card-body a {
+    display: block;
+  }
+}
+
+.cards.mosaic-cards > ul > li .cards-card-image,
+.cards.mosaic-cards > ul > li .cards-card-image img {
+  height: 100%;
+}
+
+.cards.mosaic-cards > ul > li .cards-card-body {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  max-width: 500px;
+  min-height: 80px;
+  overflow: hidden;
+  background-color: var(--background-color);
+  padding: 20px 25px 0 25px;
+  transition: 280px 1.5s ease-out;
+}
+
+.cards.mosaic-cards > ul > li .cards-card-body h5 {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.2;
+  font-family: 'Merriweather', serif;
+  text-transform: none;
+  max-height: 56px;
+  overflow: hidden;
+  margin: 0 0 .75rem 0;
+}
+
+.cards.mosaic-cards > ul > li .cards-card-body p {
+  margin: 0;
+  font-size: var(--body-font-size-xs);
+  padding-bottom: 15px;
+  overflow: hidden;
+  display: none;
+}
+
+.cards.mosaic-cards > ul > li .cards-card-body a {
+  margin: 0;
+  padding: 0 0 5px 0;
+  text-align: left;
+  color: var(--link-color);
+  letter-spacing: 1px;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  display: none;
+}
+
+@media (width < 768px) {
+  .cards.mosaic-cards > ul {
+    grid-template-columns: 1fr;
+    gap: 1.875rem 30px;
+  }
+}
