@@ -59,7 +59,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   const button = nav.querySelector('.nav-hamburger button');
   document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-  toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
+  toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'false');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
   // enable nav dropdown keyboard accessibility
   navSections.forEach((section) => {
@@ -186,6 +186,22 @@ function addClassesToNavDropdowns(block) {
   });
 }
 
+function setupMobileStructure(block) {
+  const navTools = block.querySelector('.nav-tools')?.cloneNode(true);
+  navTools.classList.remove('nav-tools');
+  navTools.classList.add('nav-tools-mobile');
+  const navSections = block.querySelector('.nav-sections');
+  navSections?.before(navTools);
+
+  navTools.querySelector('.nav-drop.login')?.addEventListener('click', (e) => {
+    const target = e.target.closest('.nav-drop.login');
+    const expanded = target?.getAttribute('aria-expanded') === 'true';
+    const allSections = block.querySelectorAll('.nav-sections, .nav-tools');
+    toggleAllNavSections(allSections);
+    target?.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+  });
+}
+
 /**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -221,11 +237,14 @@ export default async function decorate(block) {
     items?.forEach((item) => {
       if (item.querySelector('ul')) item.classList.add('nav-drop');
       item.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = item.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          item.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
+        // if (isDesktop.matches) {
+        //   const expanded = item.getAttribute('aria-expanded') === 'true';
+        //   toggleAllNavSections(navSections);
+        //   item.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        // }
+        const expanded = item.getAttribute('aria-expanded') === 'true';
+        toggleAllNavSections(navSections);
+        item.setAttribute('aria-expanded', expanded ? 'false' : 'true');
       });
     });
   });
@@ -249,4 +268,5 @@ export default async function decorate(block) {
   block.append(navWrapper);
   appendSearchWrapper(block);
   addClassesToNavDropdowns(block);
+  setupMobileStructure(block);
 }
