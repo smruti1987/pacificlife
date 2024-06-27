@@ -134,3 +134,10 @@ footer .footer p a {
     max-width: 1440px;
   }
 }
+
+@media (width < 900px) {
+  .section.social-media .columns-wrapper > div > div {
+    align-items: center;
+    gap: 10px;
+  }
+}
