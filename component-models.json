@@ -185,19 +185,6 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
-      },
-      {
-        "component": "multiselect",
-        "valueType": "string",
-        "name": "classes",
-        "label": "Classes",
-        "value": "",
-        "options": [
-          {
-            "name": "Tall Card",
-            "value": "tall-card"
-          }
-        ]
       }
     ]
   },
