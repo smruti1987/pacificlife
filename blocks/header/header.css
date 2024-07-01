@@ -175,6 +175,24 @@ header {
     font-family: var(--body-font-family);
   }
 
+  .close-menu {
+    background: none;
+    margin: 0;
+    border: none;
+    padding: 0;
+    flex-flow: row nowrap;
+    align-items: center;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: var(--text-color-white);
+    display: none;
+    font-size: 1.3rem;
+    font-family: var(--body-font-family-mont);
+    font-weight: 400;
+    text-transform: none;
+  }
+
   .back-btn {
     width: 100%;
     background: none;
@@ -565,9 +583,9 @@ header {
             outline: none;
           }
 
-          .icon {
+          /* .icon {
             display: none;
-          }
+          } */
         }
       }
     }
@@ -610,6 +628,10 @@ header {
       .back-btn {
         display: none;
       }
+
+      .close-menu {
+        display: flex;
+      }
     }
 
     /* logo */
@@ -622,8 +644,16 @@ header {
       height: auto;
       background: none;
 
-      .nav-drop:hover {
+      .close-menu {
+        margin: 1.4rem 6rem;
+
         img {
+          filter: brightness(0) invert(1);
+        }
+      }
+
+      .nav-drop:hover {
+        > p img {
           filter: invert(43%) sepia(41%) saturate(6221%) hue-rotate(177deg) brightness(96%) contrast(101%);
         }
       }
@@ -785,6 +815,7 @@ header {
                   padding: 2rem 0;
                   border: none;
                   box-shadow: -2px 0 4px 0 rgba(0 0 0 / 20%);
+                  cursor: default;
                   
                   > ul {
                     margin-top: 6rem;
@@ -817,6 +848,25 @@ header {
 
     /* main nav */
     .nav-sections {
+
+      .close-menu {
+        display: block;
+
+        .close-text {
+          display: none;
+        }
+
+        img {
+          filter: brightness(0.5);
+        }
+        
+        &:hover {
+          img {
+            filter: brightness(0);
+          }
+        }
+      }
+
       ul {
         display: flex;
         gap: 2rem;
@@ -916,6 +966,8 @@ header {
 
         .search-toggle {
           cursor: pointer;
+          display: block;
+          border: none;
 
           .icon-search {
             display: block;
@@ -960,6 +1012,7 @@ header {
                 padding: 2.4rem 0 4rem;
                 height: auto;
                 overflow-y: unset;
+                cursor: default;
 
                 >ul {
                   display: flex;

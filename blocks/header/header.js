@@ -184,10 +184,29 @@ function addClassesToNavDropdowns(block) {
     const data = dropdown.querySelector('ul');
     wrapper.append(backBtn);
     wrapper.append(data);
-    if (index === 0) dropdown.classList.add('products');
-    if (index === 1) dropdown.classList.add('about-us');
-    if (index === 2) dropdown.classList.add('login');
-    if (index === 3) dropdown.classList.add('menu');
+
+    const closeBtn = document.createElement('button');
+    closeBtn.setAttribute('type', 'button');
+    closeBtn.classList.add('close-menu');
+    closeBtn.innerHTML = `
+      <span class="icon icon-close">
+        <img data-icon-name="close" src="/icons/close.svg" alt="Close menu" loading="lazy" />
+      </span>
+      <span class="close-text">Close</span>
+    `;
+
+    if (index === 0) {
+      dropdown.classList.add('products');
+      wrapper.prepend(closeBtn);
+    } else if (index === 1) {
+      dropdown.classList.add('about-us');
+      wrapper.prepend(closeBtn);
+    } else if (index === 2) {
+      dropdown.classList.add('login');
+    } else if (index === 3) {
+      dropdown.classList.add('menu');
+      wrapper.prepend(closeBtn);
+    }
     dropdown.appendChild(wrapper);
   });
 }
