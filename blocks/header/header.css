@@ -476,6 +476,11 @@ header {
     height: 100%;
     background-color: var(--link-color);
 
+    .back-btn {
+      background-color: var(--link-color);
+      color: var(--text-color-white);
+    }
+
     >div {
       >ul {
         margin: 0;
