@@ -7,19 +7,9 @@ header .nav-wrapper {
 }
 
 header nav[aria-expanded='true'] {
-  /* grid-template:
-    'brand hamburger' var(--nav-height) 'tools-mobile tools-mobile' minmax(0, max-content) 'sections sections' minmax(0, max-content)
-    'tools tools' minmax(0, max-content) / auto 1fr; */
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  /* grid-template-rows: 1fr 1fr 1fr 1fr; */
-  grid-template-rows: minmax(0px, 80px) minmax(0px, 50px) minmax(0px, 200px) 1fr;
+  grid-template: "brand brand hamburger" minmax(0, 8rem) "tools-mobile tools-mobile tools-mobile" minmax(0, 5rem) "sections sections sections" minmax(0, 20rem) "tools tools tools" 1fr / 1fr 1fr 1fr;
   gap: 0;
-  grid-template-areas:
-    "brand brand hamburger"
-    "tools-mobile tools-mobile tools-mobile"
-    "sections sections sections"
-    "tools tools tools";
   overflow-y: auto;
   min-height: 100vh;
 }
