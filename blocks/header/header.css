@@ -7,9 +7,19 @@ header .nav-wrapper {
 }
 
 header nav[aria-expanded='true'] {
-  grid-template:
+  /* grid-template:
     'brand hamburger' var(--nav-height) 'tools-mobile tools-mobile' minmax(0, max-content) 'sections sections' minmax(0, max-content)
-    'tools tools' minmax(0, max-content) / auto 1fr;
+    'tools tools' minmax(0, max-content) / auto 1fr; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr 1fr 1fr; */
+  grid-template-rows: minmax(0px, 80px) minmax(0px, 50px) minmax(0px, 200px) 1fr;
+  gap: 0;
+  grid-template-areas:
+    "brand brand hamburger"
+    "tools-mobile tools-mobile tools-mobile"
+    "sections sections sections"
+    "tools tools tools";
   overflow-y: auto;
   min-height: 100vh;
 }
@@ -448,6 +458,9 @@ header {
   }
 
   .nav-tools {
+    height: 100%;
+    background-color: var(--link-color);
+
     >div {
       >ul {
         margin: 0;
@@ -505,6 +518,7 @@ header {
           &.nav-drop {
             >p {
               position: relative;
+              color: var(--text-color-white);
 
               &::after {
                 content: '';
@@ -555,7 +569,7 @@ header {
 @media (width >=1140px) {
   header {
     nav {
-      display: flex;
+      display: flex !important;
       justify-content: space-between;
       padding: 0 1rem;
       align-items: center;
@@ -581,6 +595,9 @@ header {
 
     /* utility nav */
     .nav-tools {
+      height: auto;
+      background: none;
+
       .nav-drop:hover {
         img {
           filter: invert(43%) sepia(41%) saturate(6221%) hue-rotate(177deg) brightness(96%) contrast(101%);
@@ -629,43 +646,46 @@ header {
               }
             }
 
-            &:hover {
-              cursor: pointer;
-
-              > p {
-                color: var(--link-color);
-
-                img {
-                  filter: invert(43%) sepia(41%) saturate(6221%) hue-rotate(177deg) brightness(96%) contrast(101%);
+            &.nav-drop {
+              &:hover {
+                cursor: pointer;
+            
+                >p {
+                  color: var(--link-color);
+            
+                  img {
+                    filter: invert(43%) sepia(41%) saturate(6221%) hue-rotate(177deg) brightness(96%) contrast(101%);
+                  }
                 }
               }
-            }
 
-            > p {
-              margin: 0;
-              padding: 0;
-              border: none;
-              display: flex;
-              flex-flow: row nowrap;
-              justify-content: flex-start;
-              align-items: center;
-              transition: none;
-              font-family: var(--body-font-family-mont);
-              font-size: 1.3rem;
-              font-weight: var(--font-semibold);
-              text-transform: none;
-
-              &::after {
-                display: none !important;
-              }
-
-              .icon {
-                margin-right: 0.4rem;
-                display: block;
-              }
-
-              img {
-                filter: brightness(0%);
+              >p {
+                margin: 0;
+                padding: 0;
+                border: none;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: flex-start;
+                align-items: center;
+                transition: none;
+                font-family: var(--body-font-family-mont);
+                font-size: 1.3rem;
+                font-weight: var(--font-semibold);
+                text-transform: none;
+                color: var(--text-color);
+            
+                &::after {
+                  display: none !important;
+                }
+            
+                .icon {
+                  margin-right: 0.4rem;
+                  display: block;
+                }
+            
+                img {
+                  filter: brightness(0%);
+                }
               }
             }
 
