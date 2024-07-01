@@ -164,20 +164,6 @@
   position: relative;
 }
 
-.cards.mosaic-cards > ul > li:hover .cards-card-body {
-  width: 400px;
-  max-height: 500px;
-  transition: max-height 2s ease-out, width 0.3s ease-out;
-}
-
-.cards.mosaic-cards > ul > li:hover .cards-card-body h5 {
-  max-width: none; 
-}
-
-.cards.mosaic-cards > ul > li:hover .cards-card-body p {
-  opacity: 1;
-}
-
 .cards.mosaic-cards > ul > li a {
   color: var(--text-color);
 }
@@ -194,13 +180,27 @@
   bottom: 0;
   left: 0;
   margin: 0;
-  width: 350px;
+  width: 70%;
   min-height: 80px;
   max-height: 80px;
   overflow: hidden;
   background-color: var(--background-color);
   padding: 20px 25px 0;
   transition: max-height 1.5s ease-out, width 1s ease-out;
+}
+
+.cards.mosaic-cards > ul > li:hover .cards-card-body {
+  width: 85%;
+  max-height: 500px;
+  transition: max-height 2s ease-out, width 0.3s ease-out;
+}
+
+.cards.mosaic-cards > ul > li:hover .cards-card-body h5 {
+  max-width: none; 
+}
+
+.cards.mosaic-cards > ul > li:hover .cards-card-body p {
+  opacity: 1;
 }
 
 .cards.mosaic-cards > ul > li .cards-card-body h5 {
