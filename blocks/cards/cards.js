@@ -2,20 +2,22 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 function createAnchorEl() {
-  const cardsContainer = document.querySelector('.hero-cards');
-  if (cardsContainer) {
-    const cards = cardsContainer.querySelectorAll('li');
-    for (let i = 0; i < cards.length; i += 1) {
-      if (!cards[i].querySelector('.has-link')) {
-        const link = cards[i].querySelector('a');
-        const wrapper = document.createElement('a');
-        wrapper.setAttribute('href', link.href);
-        wrapper.classList.add('has-link');
-        wrapper.append(...cards[i].children);
-        cards[i].appendChild(wrapper);
-        link.parentElement.removeAttribute('class');
-        link.parentElement.innerHTML = link.title;
-        link.remove();
+  const cardsContainers = [...document.querySelectorAll('.hero-cards, .mosaic-cards')];
+  if (cardsContainers) {
+    for (let j = 0; j < cardsContainers.length; j += 1) {
+      const cards = cardsContainers[j].querySelectorAll('li');
+      for (let i = 0; i < cards.length; i += 1) {
+        if (!cards[i].querySelector('.has-link')) {
+          const link = cards[i].querySelector('a');
+          const wrapper = document.createElement('a');
+          wrapper.setAttribute('href', link.href);
+          wrapper.classList.add('has-link');
+          wrapper.append(...cards[i].children);
+          cards[i].appendChild(wrapper);
+          link.parentElement.removeAttribute('class');
+          link.parentElement.innerHTML = link.title;
+          link.remove();
+        }
       }
     }
   }
