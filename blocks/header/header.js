@@ -174,9 +174,15 @@ function appendSearchWrapper(block) {
 function addClassesToNavDropdowns(block) {
   const navDrops = block.querySelectorAll('.nav-drop');
   navDrops.forEach((dropdown, index) => {
+    const backBtn = document.createElement('button');
+    const backBtnText = document.createTextNode('back');
+    backBtn.setAttribute('type', 'button');
+    backBtn.classList.add('button', 'back-btn');
+    backBtn.append(backBtnText);
     const wrapper = document.createElement('div');
     wrapper.classList.add('nav-drop-container');
     const data = dropdown.querySelector('ul');
+    wrapper.append(backBtn);
     wrapper.append(data);
     if (index === 0) dropdown.classList.add('products');
     if (index === 1) dropdown.classList.add('about-us');

@@ -175,6 +175,31 @@ header {
     font-family: var(--body-font-family);
   }
 
+  .back-btn {
+    width: 100%;
+    background: none;
+    margin: 0;
+    text-align: left;
+    border: none;
+    border-top: 1px solid var(--mobile-menu-item-border);
+    position: relative;
+    padding: 1rem 2.6rem;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 2rem;
+      left: 1.5rem;
+      transform: rotate(225deg);
+      width: 6px;
+      height: 6px;
+      border: 2px solid currentcolor;
+      border-radius: 0 1px 0 0;
+      border-width: 2px 2px 0 0;
+    }
+  }
+
   .nav-hamburger {
     margin: 2.6rem 1.6rem;
   }
@@ -575,6 +600,10 @@ header {
         [aria-expanded="true"] & {
           display: none;
         }
+      }
+
+      .back-btn {
+        display: none;
       }
     }
 
