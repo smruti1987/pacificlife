@@ -164,15 +164,22 @@
   position: relative;
 }
 
-.cards.mosaic-cards > ul > li:hover {
-  .cards-card-body {
-    max-height: none;
-    transition: 280px 1.5s ease-out;
-  }
+.cards.mosaic-cards > ul > li:hover .cards-card-body {
+  width: 400px;
+  max-height: 500px;
+  transition: max-height 2s ease-out, width 0.3s ease-out;
+}
 
-  .cards-card-body p, .cards-card-body a {
-    display: block;
-  }
+.cards.mosaic-cards > ul > li:hover .cards-card-body h5 {
+  max-width: none; 
+}
+
+.cards.mosaic-cards > ul > li:hover .cards-card-body p {
+  opacity: 1;
+}
+
+.cards.mosaic-cards > ul > li a {
+  color: var(--text-color);
 }
 
 .cards.mosaic-cards > ul > li .cards-card-image,
@@ -187,12 +194,13 @@
   bottom: 0;
   left: 0;
   margin: 0;
-  max-width: 500px;
+  width: 350px;
   min-height: 80px;
+  max-height: 80px;
   overflow: hidden;
   background-color: var(--background-color);
   padding: 20px 25px 0;
-  transition: 280px 1.5s ease-out;
+  transition: max-height 1.5s ease-out, width 1s ease-out;
 }
 
 .cards.mosaic-cards > ul > li .cards-card-body h5 {
@@ -202,7 +210,7 @@
   font-family: Merriweather, serif;
   text-transform: none;
   max-height: 56px;
-  overflow: hidden;
+  max-width: 350px;
   margin: 0 0 .75rem;
 }
 
@@ -211,18 +219,28 @@
   font-size: var(--body-font-size-xs);
   padding-bottom: 15px;
   overflow: hidden;
-  display: none;
+  opacity: 0;
+  transition: opacity 1.5s ease-out;
 }
 
-.cards.mosaic-cards > ul > li .cards-card-body a {
-  margin: 0;
-  padding: 0 0 5px;
-  text-align: left;
+.cards.mosaic-cards > ul > li .cards-card-body p:last-of-type {
+  display: flex;
+  font-family: Montserrat, sans-serif;
   color: var(--link-color);
+  text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: var(--body-font-size-xs);
   font-weight: 700;
-  display: none;
+}
+
+.cards.mosaic-cards > ul > li .cards-card-body p:last-of-type::after {
+  content: '';
+  transform: rotate(45deg);
+  align-self: center;
+  margin-left: 5px;
+  width: 6px;
+  height: 6px;
+  border: 2px solid currentcolor;
+  border-width: 2px 2px 0 0;
 }
 
 @media (width < 768px) {
