@@ -4,7 +4,7 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 function createAnchorEl() {
   const cardsContainers = [...document.querySelectorAll('.hero-cards, .mosaic-cards')];
   if (cardsContainers) {
-    for (let j = 0; j < cardsContainers.length; j++) {
+    for (let j = 0; j < cardsContainers.length; j += 1) {
       const cards = cardsContainers[j].querySelectorAll('li');
       for (let i = 0; i < cards.length; i += 1) {
         if (!cards[i].querySelector('.has-link')) {
