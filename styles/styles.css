@@ -303,7 +303,7 @@ main .section p {
 }
 
 /* Section News */
-main .section.section-news .columns-wrapper .columns {
+main .section.section-news .columns-wrapper .columns.columns-2-cols {
   border-bottom: 1px solid #d5d5d5;
 }
 
@@ -314,12 +314,12 @@ main .section.section-news .columns-wrapper .columns h5 {
   margin: 0 0 .5rem;
 }
 
-main .section.section-news .columns-wrapper .columns p.button-container {
+main .section.section-news .columns-wrapper .columns.columns-2-cols p.button-container {
   padding: 0 10px;
   margin: 0;
 }
 
-main .section.section-news .columns-wrapper .columns p.button-container a {
+main .section.section-news .columns-wrapper .columns.columns-2-cols p.button-container a {
   display: flex;
   color: var(--link-color);
   font-size: var(--body-font-size-xs);
@@ -328,11 +328,11 @@ main .section.section-news .columns-wrapper .columns p.button-container a {
   margin: 0;
 }
 
-main .section.section-news .columns-wrapper .columns p.button-container a:hover {
+main .section.section-news .columns-wrapper .columns.columns-2-cols p.button-container a:hover {
   color: var(--link-hover-color);
 }
 
-main .section.section-news .columns-wrapper .columns p.button-container a::after {
+main .section.section-news .columns-wrapper .columns.columns-2-cols p.button-container a::after {
   content: '';
   transform: rotate(45deg);
   align-self: center;
@@ -343,7 +343,7 @@ main .section.section-news .columns-wrapper .columns p.button-container a::after
   border-width: 2px 2px 0 0;
 }
 
-main .section.section-news .columns-wrapper .columns > div > div:last-of-type {
+main .section.section-news .columns-wrapper .columns.columns-2-cols > div > div:last-of-type {
   display: flex;
   justify-content: flex-end;
 }
