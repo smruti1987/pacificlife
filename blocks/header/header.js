@@ -129,7 +129,7 @@ function setupSearchClickHandler(block) {
           e.target.closest('nav').setAttribute('aria-expanded', 'false');
         }
         if (document.body.style.overflowY === 'hidden') {
-          document.body.style.overflowY === '';
+          document.body.removeAttribute('style');
         }
         const allSections = block.querySelectorAll('.nav-sections, .nav-tools, .nav-tools-mobile');
         toggleAllNavSections(allSections);
