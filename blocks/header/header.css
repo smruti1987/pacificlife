@@ -620,9 +620,8 @@ header {
                     align-items: center;
                     justify-content: flex-start;
                     column-gap: 0.8rem;
-                    margin-left: 1.5rem;
                     list-style-type: none;
-                    margin:0;
+                    margin: 1rem 0 0;
                     padding: 0;
                 
                     li {
@@ -682,6 +681,10 @@ header {
                   padding: 1.6rem;
                   line-height: 2.7rem;
 
+                  > p {
+                    display: flex;
+                  }
+
                   a {
                     margin: 0;
                     padding: 0;
@@ -690,6 +693,7 @@ header {
                     font-weight: var(--font-light-bold);
                     text-transform: uppercase;
                     color: var(--text-color-white);
+                    line-height: 2.4rem;
                   }
                 }
               }
@@ -1005,7 +1009,7 @@ header {
                         align-items: center;
                         justify-content: flex-start;
                         column-gap: 0.8rem;
-                        margin-left: 1.5rem;
+                        margin: 1rem 0 0 1.5rem;
 
                         li {
                           border-radius: 0.4rem;
