@@ -302,6 +302,52 @@ main .section p {
   }
 }
 
+/* Section News */
+main .section.section-news .columns-wrapper .columns {
+  border-bottom: 1px solid #d5d5d5;
+}
+
+main .section.section-news .columns-wrapper .columns h5 {
+  text-transform: none;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  margin: 0 0 .5rem;
+}
+
+main .section.section-news .columns-wrapper .columns p.button-container {
+  padding: 0 10px;
+  margin: 0;
+}
+
+main .section.section-news .columns-wrapper .columns p.button-container a {
+  display: flex;
+  color: var(--link-color);
+  font-size: var(--body-font-size-xs);
+  font-weight: var(--font-light-bold);
+  padding: 0 2px 6px 0;
+  margin: 0;
+}
+
+main .section.section-news .columns-wrapper .columns p.button-container a:hover {
+  color: var(--link-hover-color);
+}
+
+main .section.section-news .columns-wrapper .columns p.button-container a::after {
+  content: '';
+  transform: rotate(45deg);
+  align-self: center;
+  margin-left: 5px;
+  width: 6px;
+  height: 6px;
+  border: 2px solid currentcolor;
+  border-width: 2px 2px 0 0;
+}
+
+main .section.section-news .columns-wrapper .columns > div > div:last-of-type {
+  display: flex;
+  justify-content: flex-end;
+}
+
 /* section metadata */
 main .section.light,
 main .section.highlight {
