@@ -164,6 +164,10 @@
           {
             "name": "Mosaic Cards",
             "value": "mosaic-cards"
+          },
+          {
+            "name": "News Cards",
+            "value": "news-cards"
           }
         ]
       }
