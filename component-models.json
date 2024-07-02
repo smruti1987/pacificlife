@@ -219,6 +219,10 @@
                 "value": "condensed-width"
               },
               {
+                "name": "Section News",
+                "value": "section-news"
+              },
+              {
                 "name": "Footer Nav",
                 "value": "footer-nav"
               }
