@@ -167,6 +167,26 @@ function appendSearchWrapper(block) {
   searchWrapper.append(searchInputWrapper);
   searchWrapper.append(submitBtn);
 
+  const searchClone = searchWrapper.cloneNode(true);
+
+  const nav = block.querySelector('nav');
+  const searchMobileSection = document.createElement('div');
+  searchMobileSection.classList.add('section', 'mobile-search');
+
+  nav.append(searchMobileSection);
+
+  const searchMobileButton = document.createElement('button');
+  searchMobileButton.setAttribute('type', 'button');
+  searchMobileButton.classList.add('search-toggle');
+  searchMobileButton.innerHTML += `
+    <span class="icon icon-search">
+      <img data-icon-name="search" src="/icons/search.svg" alt="Mobile search" loading="lazy">
+    </span>
+  `;
+
+  nav?.querySelector('.mobile-search')?.append(searchMobileButton);
+  nav?.querySelector('.mobile-search').append(searchClone);
+
   liSearchParent.append(searchWrapper);
   setupSearchClickHandler(block);
 }

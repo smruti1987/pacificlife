@@ -8,7 +8,7 @@ header .nav-wrapper {
 
 header nav[aria-expanded='true'] {
   display: grid;
-  grid-template: "brand brand hamburger" minmax(0, 8rem) "tools-mobile tools-mobile tools-mobile" minmax(0, 5rem) "sections sections sections" minmax(0, 20rem) "tools tools tools" 1fr / 1fr 1fr 1fr;
+  grid-template: "brand brand search hamburger" minmax(0, 8rem) "tools-mobile tools-mobile tools-mobile tools-mobile" minmax(0, 5rem) "sections sections sections sections" minmax(0, 20rem) "tools tools tools tools" 1fr / auto 1fr 1fr auto;
   gap: 0;
   overflow-y: auto;
   min-height: 100vh;
@@ -168,11 +168,29 @@ header {
     box-sizing: border-box;
     display: grid;
     grid-template:
-      'brand tools hamburger' var(--nav-height) 'sections sections sections' 1fr / auto 1fr auto;
-    gap: 0 2em;
+      'brand brand search hamburger' var(--nav-height) 'sections sections sections sections' 1fr / auto 1fr 1fr auto;
+    gap: 0;
     margin: auto;
     height: var(--nav-height);
     font-family: var(--body-font-family);
+  }
+
+  .mobile-search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    grid-area: search;
+
+    .search-toggle {
+      margin: 0;
+      padding: 0;
+      background: none;
+      border: none;
+    }
+
+    .hidden {
+      display: none;
+    }
   }
 
   .close-menu {
@@ -611,6 +629,10 @@ header {
       justify-content: space-between;
       padding: 0 1rem;
       align-items: center;
+
+      .mobile-search {
+        display: none;
+      }
 
       .nav-hamburger {
         display: none;
