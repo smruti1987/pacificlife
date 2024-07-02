@@ -610,6 +610,54 @@ header {
 
           &:last-child {
             border-bottom: 1px solid var(--mobile-menu-item-border);
+
+            .nav-drop-container {
+              > ul {
+                > li {
+                  >ul {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-items: center;
+                    justify-content: flex-start;
+                    column-gap: 0.8rem;
+                    margin-left: 1.5rem;
+                    list-style-type: none;
+                    margin:0;
+                    padding: 0;
+                
+                    li {
+                      border-radius: 0.4rem;
+                    }
+                
+                    li:nth-of-type(1) {
+                      background-color: var(--linkedin-color);
+                    }
+                
+                    li:nth-of-type(2) {
+                      background-color: var(--facebook-color);
+                    }
+                
+                    li:nth-of-type(3) {
+                      background-color: var(--twitter-color);
+                    }
+                
+                    li:nth-of-type(4) {
+                      background-color: var(--instagram-color);
+                    }
+                
+                    li:nth-of-type(5) {
+                      background-color: var(--youtube-color);
+                    }
+                
+                    a {
+                      background: none;
+                      display: flex;
+                      padding: 0.8rem;
+                    }
+                  }
+                }
+              }
+            }
           }
 
           &[aria-expanded="true"] {
@@ -678,9 +726,6 @@ header {
             outline: none;
           }
 
-          /* .icon {
-            display: none;
-          } */
         }
       }
     }
@@ -921,7 +966,24 @@ header {
                     padding: 0 7.5rem;
 
                     > li {
-                      margin: 3.5rem 0 0.8rem;
+                      margin: 2.5rem 0 0.8rem;
+
+                      .button-container {
+                        a {
+                          font-family: var(--body-font-family-mont);
+                          font-size: 2rem;
+                          color: var(--text-color-white);
+                          font-weight: var(--font-semibold);
+                          text-transform: uppercase;
+                          background: none;
+                          text-align: left;
+                          border: none;
+                        
+                          &:hover {
+                            color: var(--text-color-white-hover);
+                          }
+                        }
+                      }
 
                       > a {
                         font-family: var(--body-font-family-mont);
@@ -930,9 +992,49 @@ header {
                         font-weight: var(--font-semibold);
                         text-transform: uppercase;
                         background: none;
+                        text-align: left;
                     
                         &:hover {
                           color: var(--text-color-white-hover);
+                        }
+                      }
+
+                      > ul {
+                        display: flex;
+                        flex-flow: row nowrap;
+                        align-items: center;
+                        justify-content: flex-start;
+                        column-gap: 0.8rem;
+                        margin-left: 1.5rem;
+
+                        li {
+                          border-radius: 0.4rem;
+                        }
+
+                        li:nth-of-type(1) {
+                          background-color: var(--linkedin-color);
+                        }
+                      
+                        li:nth-of-type(2) {
+                          background-color: var(--facebook-color);
+                        }
+                      
+                        li:nth-of-type(3) {
+                          background-color: var(--twitter-color);
+                        }
+                      
+                        li:nth-of-type(4) {
+                          background-color: var(--instagram-color);
+                        }
+
+                        li:nth-of-type(5) {
+                          background-color: var(--youtube-color);
+                        }
+
+                        a {
+                          background: none;
+                          display: flex;
+                          padding: 0.8rem;
                         }
                       }
                     }
@@ -1054,6 +1156,7 @@ header {
                 width: 100%;
                 background: var(--background-color);
                 border-top: 1px solid var(--light-color);
+                border-bottom: 1px solid var(--light-color);
                 padding: 2.4rem 0 4rem;
                 height: auto;
                 overflow-y: unset;
