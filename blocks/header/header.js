@@ -1,5 +1,6 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+import waitForElement from '../../scripts/utils.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 1140px)');
@@ -98,8 +99,11 @@ function handleSearchClose(e) {
   if (!wrapper?.classList.contains('hidden')) {
     wrapper.classList.add('hidden');
   }
-  const searchIcon = e.target.closest('li')?.querySelector('.icon-search.hidden');
-  searchIcon?.classList.remove('hidden');
+  if (e.target.closest('li')) {
+    e.target.closest('li').querySelector('.icon-search.hidden')?.classList.remove('hidden');
+  } else {
+    e.target.closest('.mobile-search')?.querySelector('.icon-search.hidden')?.classList.remove('hidden');
+  }
 }
 
 /**
@@ -107,14 +111,34 @@ function handleSearchClose(e) {
  * @param {Element} parent The list container element
  */
 function setupSearchClickHandler(block) {
-  const search = block.querySelector('.icon-search');
-  search?.closest('li').classList.add('search-toggle');
-  search.addEventListener('click', (e) => {
-    e.target.closest('.icon-search')?.classList.add('hidden');
-    const parent = e.target.closest('li')?.querySelector('.search-wrapper');
-    if (parent?.classList.contains('hidden')) {
-      parent.classList.remove('hidden');
+  const searchIcons = block.querySelectorAll('.icon-search');
+  searchIcons?.forEach((icon) => {
+    const searchLi = icon.closest('li');
+    if (searchLi && !searchLi.classList.contains('search-toggle')) {
+      searchLi.classList.add('search-toggle');
     }
+    icon.addEventListener('click', (e) => {
+      e.target.closest('.icon-search')?.classList.add('hidden');
+      if (searchLi) {
+        const parent = e.target.closest('li')?.querySelector('.search-wrapper');
+        if (parent?.classList.contains('hidden')) {
+          parent.classList.remove('hidden');
+        }
+      } else {
+        if (e.target.closest('nav').getAttribute('aria-expanded') === 'true') {
+          e.target.closest('nav').setAttribute('aria-expanded', 'false');
+        }
+        if (document.body.style.overflowY === 'hidden') {
+          document.body.style.overflowY === '';
+        }
+        const allSections = block.querySelectorAll('.nav-sections, .nav-tools, .nav-tools-mobile');
+        toggleAllNavSections(allSections);
+        const parent = e.target.closest('.mobile-search')?.querySelector('.search-wrapper');
+        if (parent?.classList.contains('hidden')) {
+          parent.classList.remove('hidden');
+        }
+      }
+    });
   });
 }
 
@@ -186,6 +210,10 @@ function appendSearchWrapper(block) {
 
   nav?.querySelector('.mobile-search')?.append(searchMobileButton);
   nav?.querySelector('.mobile-search').append(searchClone);
+
+  waitForElement('.mobile-search .close-icon', () => {
+    nav.querySelector('.mobile-search .close-icon')?.addEventListener('click', handleSearchClose);
+  });
 
   liSearchParent.append(searchWrapper);
   setupSearchClickHandler(block);
@@ -282,11 +310,6 @@ export default async function decorate(block) {
     items?.forEach((item) => {
       if (item.querySelector('ul')) item.classList.add('nav-drop');
       item.addEventListener('click', () => {
-        // if (isDesktop.matches) {
-        //   const expanded = item.getAttribute('aria-expanded') === 'true';
-        //   toggleAllNavSections(navSections);
-        //   item.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        // }
         const expanded = item.getAttribute('aria-expanded') === 'true';
         toggleAllNavSections(navSections);
         item.setAttribute('aria-expanded', expanded ? 'false' : 'true');
