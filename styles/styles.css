@@ -42,9 +42,11 @@
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
   --body-font-family-default: 'OpenSans', 'sans-serif';
   --body-font-family-mont: 'Montserrat', 'sans-serif';
+  --body-font-family-merri: 'Merriweather', 'serif';
   --button-font-family: var(--body-font-family-mont);
 
   /* body sizes */
+  --body-font-size-mm: 24px;
   --body-font-size-m: 22px;
   --body-font-size-s: 18px;
   --body-font-size-xs: 16px;
@@ -63,6 +65,7 @@
   --nav-height: 80px;
 
   /* font weight */
+  --font-light: 300;
   --font-regular: 400;
   --font-semibold: 600;
   --font-light-bold: 700;
@@ -306,6 +309,7 @@ main .section p {
 /* Section News */
 main .section.section-news .columns-wrapper .columns.columns-2-cols {
   border-bottom: 1px solid #d5d5d5;
+  margin-bottom: 1.5rem;
 }
 
 main .section.section-news .columns-wrapper .columns h5 {
@@ -347,6 +351,23 @@ main .section.section-news .columns-wrapper .columns.columns-2-cols p.button-con
 main .section.section-news .columns-wrapper .columns.columns-2-cols > div > div:last-of-type {
   display: flex;
   justify-content: flex-end;
+}
+
+@media (width < 768px) {
+  main .section.section-news .columns-wrapper .columns.columns-2-cols > div > div:last-of-type {
+    justify-content: flex-start;
+  }
+
+  main .section.section-news .columns-wrapper .columns.columns-2-cols p.button-container {
+    padding-left: 0;
+  }
+
+  main .section.section-news .columns-wrapper,
+  main .section.section-news .cards-wrapper {
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* section metadata */

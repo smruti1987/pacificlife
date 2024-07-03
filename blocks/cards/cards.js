@@ -2,7 +2,7 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 function createAnchorEl() {
-  const cardsContainers = [...document.querySelectorAll('.hero-cards, .mosaic-cards')];
+  const cardsContainers = [...document.querySelectorAll('.hero-cards, .mosaic-cards, .news-cards')];
   if (cardsContainers) {
     for (let j = 0; j < cardsContainers.length; j += 1) {
       const cards = cardsContainers[j].querySelectorAll('li');
@@ -32,6 +32,7 @@ export default function decorate(block) {
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach((div) => {
       if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
+      else if (div.children.length === 0) div.remove();
       else div.className = 'cards-card-body';
     });
     ul.append(li);
